@@ -1,0 +1,14 @@
+parameters:
+    autoload_directories:
+        - %rootDir%/../../../src
+        - %rootDir%/../../../tests
+
+    ignoreErrors:
+        - '#Anonymous function has an unused use \$returnType#'
+        - '#Variable \$body in isset\(\) always exists and is not nullable#'
+        - '#Variable \$_tempBody in isset\(\) always exists and is not nullable#'
+        - '#serNodeAttributeSummary#'
+
+    reportUnmatchedIgnoredErrors: false
+includes:
+    - vendor/phpstan/phpstan/conf/config.level1.neon

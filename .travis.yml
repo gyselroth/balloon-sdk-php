@@ -1,0 +1,16 @@
+lang: java
+before_install: 
+- git clone https://github.com/swagger-api/swagger-codegen.git
+- cd swagger-codegen
+- mvn clean install
+- cd ..
+script:
+- wget https://raw.githubusercontent.com/gyselroth/balloon/dev/src/app/Balloon.App.Api/swagger.yml
+- wget https://raw.githubusercontent.com/gyselroth/balloon/dev/src/app/Balloon.App.Api/openapi.yml
+- make
+after_success:
+- git config --global user.email "sahli@gyselroth.com"
+- git config --global user.name "Travis CI"
+- git add src/*; git add src/*.yml
+- git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+- git push --quiet --set-upstream master master

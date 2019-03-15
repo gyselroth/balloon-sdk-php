@@ -1,0 +1,8 @@
+SwaggerClient-php
+swagger-codegen
+vendor 
+composer.lock
+build
+.php_cs.cache
+.phpstan.lock
+.phpunit.lock
