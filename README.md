@@ -1,4 +1,4 @@
-# Clustered process management for PHP
+# balloon php sdk
 
 [![Build Status](https://travis-ci.org/gyselroth/balloon-sdk-php.svg?branch=master)](https://travis-ci.org/gyselroth/balloon-sdk-php)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gyselroth/balloon-sdk-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gyselroth/balloon-sdk-php/?branch=master)
