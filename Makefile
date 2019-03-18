@@ -103,7 +103,7 @@ $(PHPSTAN_TARGET): $(PHPSTAN_SCRIPT) $(PHP_FILES) $(PHP_TEST_FILES)
 swagger: $(SWAGGER_TARGET)
 
 $(SWAGGER_TARGET): $(SWAGGER_SPECS)
-	java -jar $(SWAGGER_JAR) generate -i $(SWAGGER_SPECS) -l php --reserved-words-mappings=List=ResourceList --http-user-agent "balloon php sdk" -t src -o . -D variableNamingConvention=snake_case -D invokerPackage=Balloon\\Sdk
+	java -jar $(SWAGGER_JAR) generate -i $(SWAGGER_SPECS) -l php --reserved-words-mappings=List=ResourceList --http-user-agent "balloon php sdk" -t src -o . -D variableNamingConvention=snake_case -D invokerPackage=Balloon\\Sdk -t templates
 	@rm -rfv $(BASE_DIR)/tests/*
 	@rm -rfv $(BASE_DIR)/src/*
 	@rm -rfv $(BASE_DIR)/docs/*

@@ -13,10 +13,10 @@ Method | HTTP request | Description
 [**deleteNode**](CoreV2Api.md#deleteNode) | **DELETE** /api/v2/nodes/{node} | Delete node
 [**deleteShare**](CoreV2Api.md#deleteShare) | **DELETE** /api/v2/collections/{collection}/share | Does only remove sharing options and transform a share back into a normal collection. There will not be any data loss after this action. All existing references would be removed automatically.
 [**deleteUser**](CoreV2Api.md#deleteUser) | **DELETE** /api/v2/users/{user} | Delete user
-[**downloadNode**](CoreV2Api.md#downloadNode) | **GET** /api/v2/nodes/{node}/content | Download node contents. Note that collections are zipped on-the-fly.
 [**getApi**](CoreV2Api.md#getApi) | **GET** /api | Get server status
 [**getChildren**](CoreV2Api.md#getChildren) | **GET** /api/v2/collections/{collection}/children | Get all children of a collection
 [**getCollections**](CoreV2Api.md#getCollections) | **GET** /api/v2/collections | Get all collections
+[**getContent**](CoreV2Api.md#getContent) | **GET** /api/v2/nodes/{node}/content | Download node contents. Note that collections are zipped on-the-fly.
 [**getCurrentUser**](CoreV2Api.md#getCurrentUser) | **GET** /api/v2/users/whoami | Get user object of the current authenticated user
 [**getDeletedNodes**](CoreV2Api.md#getDeletedNodes) | **GET** /api/v2/nodes/trash | Return delete nodes (Excluding sub nodes of deleted collections)
 [**getDelta**](CoreV2Api.md#getDelta) | **GET** /api/v2/nodes/delta | Delta stream with cursor support.
@@ -489,58 +489,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **downloadNode**
-> downloadNode($node, $byte_ranges, $encode, $download)
-
-Download node contents. Note that collections are zipped on-the-fly.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$apiInstance = new Balloon\Sdk\Api\CoreV2Api(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$node = "node_example"; // string | Node identifier
-$byte_ranges = 8.14; // float | Read stream from a specific offset/limit in bytes
-$encode = "encode_example"; // string | Can be set to base64 to encode content as base64.
-$download = false; // bool | Force download file (Content-Disposition: attachment HTTP header)
-
-try {
-    $apiInstance->downloadNode($node, $byte_ranges, $encode, $download);
-} catch (Exception $e) {
-    echo 'Exception when calling CoreV2Api->downloadNode: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **node** | **string**| Node identifier |
- **byte_ranges** | **float**| Read stream from a specific offset/limit in bytes | [optional]
- **encode** | **string**| Can be set to base64 to encode content as base64. | [optional]
- **download** | **bool**| Force download file (Content-Disposition: attachment HTTP header) | [optional] [default to false]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: octet/stream
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
 # **getApi**
 > \Balloon\Sdk\Model\ApiRoot getApi()
 
@@ -695,6 +643,59 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getContent**
+> \SplFileObject getContent($node, $byte_ranges, $encode, $download)
+
+Download node contents. Note that collections are zipped on-the-fly.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Balloon\Sdk\Api\CoreV2Api(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$node = "node_example"; // string | Node identifier
+$byte_ranges = 8.14; // float | Read stream from a specific offset/limit in bytes
+$encode = "encode_example"; // string | Can be set to base64 to encode content as base64.
+$download = false; // bool | Force download file (Content-Disposition: attachment HTTP header)
+
+try {
+    $result = $apiInstance->getContent($node, $byte_ranges, $encode, $download);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CoreV2Api->getContent: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **node** | **string**| Node identifier |
+ **byte_ranges** | **float**| Read stream from a specific offset/limit in bytes | [optional]
+ **encode** | **string**| Can be set to base64 to encode content as base64. | [optional]
+ **download** | **bool**| Force download file (Content-Disposition: attachment HTTP header) | [optional] [default to false]
+
+### Return type
+
+[**\SplFileObject**](../Model/\SplFileObject.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: octet/stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

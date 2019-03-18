@@ -1956,7 +1956,7 @@ paths:
       tags:
         - core.v2
       summary: 'Download node contents. Note that collections are zipped on-the-fly.'
-      operationId: downloadNode
+      operationId: getContent
       produces:
         - octet/stream
       parameters:
@@ -1986,6 +1986,8 @@ paths:
       responses:
         200:
           description: "Content"
+          schema:
+            type: file
         404:
           description: "Resource does not exists"
         403:
