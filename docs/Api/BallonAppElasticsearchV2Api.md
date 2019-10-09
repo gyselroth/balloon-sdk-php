@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **queryElasticsearch**
-> \Balloon\Sdk\Model\Nodes queryElasticsearch($query, $deleted)
+> \Balloon\Sdk\Model\CoreV2Nodes queryElasticsearch($query, $deleted)
 
 Extended search query using elasticsearch
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Nodes**](../Model/Nodes.md)
+[**\Balloon\Sdk\Model\CoreV2Nodes**](../Model/CoreV2Nodes.md)
 
 ### Authorization
 

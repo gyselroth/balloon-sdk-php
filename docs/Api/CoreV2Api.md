@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**cloneNode**](CoreV2Api.md#cloneNode) | **POST** /api/v2/nodes/{node}/clone | Clone existing node
 [**createCollection**](CoreV2Api.md#createCollection) | **POST** /api/v2/collections/{collection} | Create a new collection
 [**createRootCollection**](CoreV2Api.md#createRootCollection) | **POST** /api/v2/collections | Create a new collection in root
+[**createToken**](CoreV2Api.md#createToken) | **POST** /api/v2/tokens | OAUTH2/OIDC token endpoint
 [**deleteGroup**](CoreV2Api.md#deleteGroup) | **DELETE** /api/v2/groups/{group} | Delete group
 [**deleteNode**](CoreV2Api.md#deleteNode) | **DELETE** /api/v2/nodes/{node} | Delete node
 [**deleteShare**](CoreV2Api.md#deleteShare) | **DELETE** /api/v2/collections/{collection}/share | Does only remove sharing options and transform a share back into a normal collection. There will not be any data loss after this action. All existing references would be removed automatically.
@@ -53,7 +54,7 @@ Method | HTTP request | Description
 
 
 # **addGroup**
-> \Balloon\Sdk\Model\Group addGroup($data)
+> \Balloon\Sdk\Model\CoreV2Group addGroup($data)
 
 Add new group
 
@@ -67,7 +68,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$data = new \Balloon\Sdk\Model\Group(); // \Balloon\Sdk\Model\Group | 
+$data = new \Balloon\Sdk\Model\CoreV2Group(); // \Balloon\Sdk\Model\CoreV2Group | 
 
 try {
     $result = $apiInstance->addGroup($data);
@@ -82,11 +83,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**\Balloon\Sdk\Model\Group**](../Model/Group.md)|  | [optional]
+ **data** | [**\Balloon\Sdk\Model\CoreV2Group**](../Model/CoreV2Group.md)|  | [optional]
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Group**](../Model/Group.md)
+[**\Balloon\Sdk\Model\CoreV2Group**](../Model/CoreV2Group.md)
 
 ### Authorization
 
@@ -100,7 +101,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **addUser**
-> \Balloon\Sdk\Model\User addUser($data)
+> \Balloon\Sdk\Model\CoreV2User addUser($data)
 
 Add new user
 
@@ -114,7 +115,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$data = new \Balloon\Sdk\Model\User(); // \Balloon\Sdk\Model\User | 
+$data = new \Balloon\Sdk\Model\CoreV2User(); // \Balloon\Sdk\Model\CoreV2User | 
 
 try {
     $result = $apiInstance->addUser($data);
@@ -129,11 +130,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**\Balloon\Sdk\Model\User**](../Model/User.md)|  | [optional]
+ **data** | [**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)|  | [optional]
 
 ### Return type
 
-[**\Balloon\Sdk\Model\User**](../Model/User.md)
+[**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)
 
 ### Authorization
 
@@ -147,7 +148,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **cloneNode**
-> \Balloon\Sdk\Model\Node cloneNode($node, $destid, $conflict)
+> \Balloon\Sdk\Model\CoreV2Node cloneNode($node, $destid, $conflict)
 
 Clone existing node
 
@@ -184,7 +185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Node**](../Model/Node.md)
+[**\Balloon\Sdk\Model\CoreV2Node**](../Model/CoreV2Node.md)
 
 ### Authorization
 
@@ -198,7 +199,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createCollection**
-> \Balloon\Sdk\Model\Collection createCollection($collection, $body)
+> \Balloon\Sdk\Model\CoreV2Collection createCollection($collection, $body)
 
 Create a new collection
 
@@ -213,7 +214,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $collection = "collection_example"; // string | Parent collection
-$body = new \Balloon\Sdk\Model\Collection(); // \Balloon\Sdk\Model\Collection | 
+$body = new \Balloon\Sdk\Model\CoreV2Collection(); // \Balloon\Sdk\Model\CoreV2Collection | 
 
 try {
     $result = $apiInstance->createCollection($collection, $body);
@@ -229,11 +230,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection** | **string**| Parent collection |
- **body** | [**\Balloon\Sdk\Model\Collection**](../Model/Collection.md)|  |
+ **body** | [**\Balloon\Sdk\Model\CoreV2Collection**](../Model/CoreV2Collection.md)|  |
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Collection**](../Model/Collection.md)
+[**\Balloon\Sdk\Model\CoreV2Collection**](../Model/CoreV2Collection.md)
 
 ### Authorization
 
@@ -247,7 +248,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createRootCollection**
-> \Balloon\Sdk\Model\Collection createRootCollection($collection, $body)
+> \Balloon\Sdk\Model\CoreV2Collection createRootCollection($body)
 
 Create a new collection in root
 
@@ -261,11 +262,10 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$collection = "collection_example"; // string | Parent collection
-$body = new \Balloon\Sdk\Model\Collection(); // \Balloon\Sdk\Model\Collection | 
+$body = new \Balloon\Sdk\Model\CoreV2Collection(); // \Balloon\Sdk\Model\CoreV2Collection | 
 
 try {
-    $result = $apiInstance->createRootCollection($collection, $body);
+    $result = $apiInstance->createRootCollection($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoreV2Api->createRootCollection: ', $e->getMessage(), PHP_EOL;
@@ -277,12 +277,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collection** | **string**| Parent collection |
- **body** | [**\Balloon\Sdk\Model\Collection**](../Model/Collection.md)|  |
+ **body** | [**\Balloon\Sdk\Model\CoreV2Collection**](../Model/CoreV2Collection.md)|  |
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Collection**](../Model/Collection.md)
+[**\Balloon\Sdk\Model\CoreV2Collection**](../Model/CoreV2Collection.md)
 
 ### Authorization
 
@@ -292,6 +291,49 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **createToken**
+> \Balloon\Sdk\Model\CoreV2OAuth2Token createToken()
+
+OAUTH2/OIDC token endpoint
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$apiInstance = new Balloon\Sdk\Api\CoreV2Api(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->createToken();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CoreV2Api->createToken: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Balloon\Sdk\Model\CoreV2OAuth2Token**](../Model/CoreV2OAuth2Token.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -490,7 +532,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getApi**
-> \Balloon\Sdk\Model\ApiRoot getApi()
+> \Balloon\Sdk\Model\CoreV2ApiRoot getApi()
 
 Get server status
 
@@ -519,7 +561,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Balloon\Sdk\Model\ApiRoot**](../Model/ApiRoot.md)
+[**\Balloon\Sdk\Model\CoreV2ApiRoot**](../Model/CoreV2ApiRoot.md)
 
 ### Authorization
 
@@ -533,7 +575,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getChildren**
-> \Balloon\Sdk\Model\Nodes getChildren($collection, $query, $attributes, $offset, $limit, $sort, $recursive)
+> \Balloon\Sdk\Model\CoreV2Nodes getChildren($collection, $query, $deleted, $attributes, $offset, $limit, $sort, $recursive)
 
 Get all children of a collection
 
@@ -549,6 +591,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
 );
 $collection = "collection_example"; // string | Parent collection
 $query = "query_example"; // string | Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\"name\": {$regex: 'foo.*'}}).
+$deleted = 8.14; // float | Wheter to include deleted or not
 $attributes = array("attributes_example"); // string[] | Filter attributes
 $offset = 8.14; // float | Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset].
 $limit = 8.14; // float | Objects limit, per default 20 objects will get returned
@@ -556,7 +599,7 @@ $sort = "sort_example"; // string | Specify a MongoDB sort operation (https://do
 $recursive = false; // bool | Include children recursively.
 
 try {
-    $result = $apiInstance->getChildren($collection, $query, $attributes, $offset, $limit, $sort, $recursive);
+    $result = $apiInstance->getChildren($collection, $query, $deleted, $attributes, $offset, $limit, $sort, $recursive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoreV2Api->getChildren: ', $e->getMessage(), PHP_EOL;
@@ -570,6 +613,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection** | **string**| Parent collection |
  **query** | **string**| Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\&quot;name\&quot;: {$regex: &#39;foo.*&#39;}}). | [optional]
+ **deleted** | **float**| Wheter to include deleted or not | [optional]
  **attributes** | [**string[]**](../Model/string.md)| Filter attributes | [optional]
  **offset** | **float**| Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset]. | [optional]
  **limit** | **float**| Objects limit, per default 20 objects will get returned | [optional]
@@ -578,7 +622,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Nodes**](../Model/Nodes.md)
+[**\Balloon\Sdk\Model\CoreV2Nodes**](../Model/CoreV2Nodes.md)
 
 ### Authorization
 
@@ -592,7 +636,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCollections**
-> \Balloon\Sdk\Model\Collections getCollections($query, $attributes, $offset, $limit, $sort)
+> \Balloon\Sdk\Model\CoreV2Collections getCollections($query, $deleted, $attributes, $offset, $limit, $sort)
 
 Get all collections
 
@@ -607,13 +651,14 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $query = "query_example"; // string | Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\"name\": {$regex: 'foo.*'}}).
+$deleted = 8.14; // float | Wheter to include deleted or not
 $attributes = array("attributes_example"); // string[] | Filter attributes
 $offset = 8.14; // float | Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset].
 $limit = 8.14; // float | Objects limit, per default 20 objects will get returned
 $sort = "sort_example"; // string | Specify a MongoDB sort operation (https://docs.mongodb.com/manual/reference/method/cursor.sort/) using JSON (For example: {\"name\": -1}).
 
 try {
-    $result = $apiInstance->getCollections($query, $attributes, $offset, $limit, $sort);
+    $result = $apiInstance->getCollections($query, $deleted, $attributes, $offset, $limit, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoreV2Api->getCollections: ', $e->getMessage(), PHP_EOL;
@@ -626,6 +671,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\&quot;name\&quot;: {$regex: &#39;foo.*&#39;}}). | [optional]
+ **deleted** | **float**| Wheter to include deleted or not | [optional]
  **attributes** | [**string[]**](../Model/string.md)| Filter attributes | [optional]
  **offset** | **float**| Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset]. | [optional]
  **limit** | **float**| Objects limit, per default 20 objects will get returned | [optional]
@@ -633,7 +679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Collections**](../Model/Collections.md)
+[**\Balloon\Sdk\Model\CoreV2Collections**](../Model/CoreV2Collections.md)
 
 ### Authorization
 
@@ -700,7 +746,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCurrentUser**
-> \Balloon\Sdk\Model\User getCurrentUser($attributes)
+> \Balloon\Sdk\Model\CoreV2User getCurrentUser($attributes)
 
 Get user object of the current authenticated user
 
@@ -733,7 +779,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\User**](../Model/User.md)
+[**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)
 
 ### Authorization
 
@@ -747,7 +793,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDeletedNodes**
-> \Balloon\Sdk\Model\Nodes getDeletedNodes($query, $attributes, $offset, $limit, $sort)
+> \Balloon\Sdk\Model\CoreV2Nodes getDeletedNodes($query, $attributes, $offset, $limit, $sort)
 
 Return delete nodes (Excluding sub nodes of deleted collections)
 
@@ -788,7 +834,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Nodes**](../Model/Nodes.md)
+[**\Balloon\Sdk\Model\CoreV2Nodes**](../Model/CoreV2Nodes.md)
 
 ### Authorization
 
@@ -802,7 +848,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDelta**
-> \Balloon\Sdk\Model\Delta getDelta($limit, $attributes, $cursor)
+> \Balloon\Sdk\Model\CoreV2Delta getDelta($limit, $attributes, $cursor)
 
 Delta stream with cursor support.
 
@@ -839,7 +885,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Delta**](../Model/Delta.md)
+[**\Balloon\Sdk\Model\CoreV2Delta**](../Model/CoreV2Delta.md)
 
 ### Authorization
 
@@ -853,7 +899,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEventLog**
-> \Balloon\Sdk\Model\EventLogs getEventLog($query, $attributes, $offset, $limit, $sort)
+> \Balloon\Sdk\Model\CoreV2EventLogs getEventLog($query, $attributes, $offset, $limit, $sort)
 
 Get event log containing all operations which are made by the user himself or share members
 
@@ -894,7 +940,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\EventLogs**](../Model/EventLogs.md)
+[**\Balloon\Sdk\Model\CoreV2EventLogs**](../Model/CoreV2EventLogs.md)
 
 ### Authorization
 
@@ -908,7 +954,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFileHistory**
-> \Balloon\Sdk\Model\FileHistory getFileHistory($file)
+> \Balloon\Sdk\Model\CoreV2FileHistory getFileHistory($file)
 
 Get a full change history of a file
 
@@ -941,7 +987,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\FileHistory**](../Model/FileHistory.md)
+[**\Balloon\Sdk\Model\CoreV2FileHistory**](../Model/CoreV2FileHistory.md)
 
 ### Authorization
 
@@ -955,7 +1001,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFiles**
-> \Balloon\Sdk\Model\Files getFiles($query, $attributes, $offset, $limit, $sort, $deleted)
+> \Balloon\Sdk\Model\CoreV2Files getFiles($query, $deleted, $attributes, $offset, $limit, $sort)
 
 Get all files
 
@@ -970,14 +1016,14 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $query = "query_example"; // string | Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\"name\": {$regex: 'foo.*'}}).
+$deleted = 8.14; // float | Wheter to include deleted or not
 $attributes = array("attributes_example"); // string[] | Filter attributes
 $offset = 8.14; // float | Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset].
 $limit = 8.14; // float | Objects limit, per default 20 objects will get returned
 $sort = "sort_example"; // string | Specify a MongoDB sort operation (https://docs.mongodb.com/manual/reference/method/cursor.sort/) using JSON (For example: {\"name\": -1}).
-$deleted = 8.14; // float | Wheter include deleted nodes or not, possible values:  0 Exclude deleted 1 Only deleted 2 Include deleted
 
 try {
-    $result = $apiInstance->getFiles($query, $attributes, $offset, $limit, $sort, $deleted);
+    $result = $apiInstance->getFiles($query, $deleted, $attributes, $offset, $limit, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoreV2Api->getFiles: ', $e->getMessage(), PHP_EOL;
@@ -990,15 +1036,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\&quot;name\&quot;: {$regex: &#39;foo.*&#39;}}). | [optional]
+ **deleted** | **float**| Wheter to include deleted or not | [optional]
  **attributes** | [**string[]**](../Model/string.md)| Filter attributes | [optional]
  **offset** | **float**| Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset]. | [optional]
  **limit** | **float**| Objects limit, per default 20 objects will get returned | [optional]
  **sort** | **string**| Specify a MongoDB sort operation (https://docs.mongodb.com/manual/reference/method/cursor.sort/) using JSON (For example: {\&quot;name\&quot;: -1}). | [optional]
- **deleted** | **float**| Wheter include deleted nodes or not, possible values:  0 Exclude deleted 1 Only deleted 2 Include deleted | [optional]
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Files**](../Model/Files.md)
+[**\Balloon\Sdk\Model\CoreV2Files**](../Model/CoreV2Files.md)
 
 ### Authorization
 
@@ -1012,7 +1058,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGroup**
-> \Balloon\Sdk\Model\Group getGroup($group, $attributes)
+> \Balloon\Sdk\Model\CoreV2Group getGroup($group, $attributes)
 
 Get single group
 
@@ -1047,7 +1093,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Group**](../Model/Group.md)
+[**\Balloon\Sdk\Model\CoreV2Group**](../Model/CoreV2Group.md)
 
 ### Authorization
 
@@ -1061,7 +1107,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGroupMembers**
-> \Balloon\Sdk\Model\User[] getGroupMembers($group)
+> \Balloon\Sdk\Model\CoreV2User[] getGroupMembers($group)
 
 Request all member of a group
 
@@ -1094,7 +1140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\User[]**](../Model/User.md)
+[**\Balloon\Sdk\Model\CoreV2User[]**](../Model/CoreV2User.md)
 
 ### Authorization
 
@@ -1108,7 +1154,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGroups**
-> \Balloon\Sdk\Model\Groups getGroups($query, $attributes, $offset, $limit, $sort)
+> \Balloon\Sdk\Model\CoreV2Groups getGroups($query, $attributes, $offset, $limit, $sort)
 
 Get groups
 
@@ -1151,7 +1197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Groups**](../Model/Groups.md)
+[**\Balloon\Sdk\Model\CoreV2Groups**](../Model/CoreV2Groups.md)
 
 ### Authorization
 
@@ -1208,7 +1254,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getNode**
-> \Balloon\Sdk\Model\Node getNode($node, $attributes)
+> \Balloon\Sdk\Model\CoreV2Node getNode($node, $attributes)
 
 Get single node
 
@@ -1243,7 +1289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Node**](../Model/Node.md)
+[**\Balloon\Sdk\Model\CoreV2Node**](../Model/CoreV2Node.md)
 
 ### Authorization
 
@@ -1257,7 +1303,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getNodeAttributeSummary**
-> \Balloon\Sdk\Model\UserNodeAttributeSummary getNodeAttributeSummary($user)
+> \Balloon\Sdk\Model\CoreV2UserNodeAttributeSummary getNodeAttributeSummary($user)
 
 Get summary of node usage.
 
@@ -1290,7 +1336,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\UserNodeAttributeSummary**](../Model/UserNodeAttributeSummary.md)
+[**\Balloon\Sdk\Model\CoreV2UserNodeAttributeSummary**](../Model/CoreV2UserNodeAttributeSummary.md)
 
 ### Authorization
 
@@ -1304,7 +1350,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getNodeEventLog**
-> \Balloon\Sdk\Model\EventLogs getNodeEventLog($node, $query, $attributes, $offset, $limit, $sort)
+> \Balloon\Sdk\Model\CoreV2EventLogs getNodeEventLog($node, $query, $attributes, $offset, $limit, $sort)
 
 Get event log containing all operations which are made by the user himself or share members on a given node
 
@@ -1347,7 +1393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\EventLogs**](../Model/EventLogs.md)
+[**\Balloon\Sdk\Model\CoreV2EventLogs**](../Model/CoreV2EventLogs.md)
 
 ### Authorization
 
@@ -1361,7 +1407,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getNodes**
-> \Balloon\Sdk\Model\Nodes getNodes($query, $attributes, $offset, $limit, $sort, $deleted)
+> \Balloon\Sdk\Model\CoreV2Nodes getNodes($query, $deleted, $attributes, $offset, $limit, $sort)
 
 Get all nodes
 
@@ -1376,14 +1422,14 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $query = "query_example"; // string | Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\"name\": {$regex: 'foo.*'}}).
+$deleted = 8.14; // float | Wheter to include deleted or not
 $attributes = array("attributes_example"); // string[] | Filter attributes
 $offset = 8.14; // float | Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset].
 $limit = 8.14; // float | Objects limit, per default 20 objects will get returned
 $sort = "sort_example"; // string | Specify a MongoDB sort operation (https://docs.mongodb.com/manual/reference/method/cursor.sort/) using JSON (For example: {\"name\": -1}).
-$deleted = 8.14; // float | Wheter include deleted nodes or not, possible values:  0 Exclude deleted 1 Only deleted 2 Include deleted
 
 try {
-    $result = $apiInstance->getNodes($query, $attributes, $offset, $limit, $sort, $deleted);
+    $result = $apiInstance->getNodes($query, $deleted, $attributes, $offset, $limit, $sort);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoreV2Api->getNodes: ', $e->getMessage(), PHP_EOL;
@@ -1396,15 +1442,15 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\&quot;name\&quot;: {$regex: &#39;foo.*&#39;}}). | [optional]
+ **deleted** | **float**| Wheter to include deleted or not | [optional]
  **attributes** | [**string[]**](../Model/string.md)| Filter attributes | [optional]
  **offset** | **float**| Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset]. | [optional]
  **limit** | **float**| Objects limit, per default 20 objects will get returned | [optional]
  **sort** | **string**| Specify a MongoDB sort operation (https://docs.mongodb.com/manual/reference/method/cursor.sort/) using JSON (For example: {\&quot;name\&quot;: -1}). | [optional]
- **deleted** | **float**| Wheter include deleted nodes or not, possible values:  0 Exclude deleted 1 Only deleted 2 Include deleted | [optional]
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Nodes**](../Model/Nodes.md)
+[**\Balloon\Sdk\Model\CoreV2Nodes**](../Model/CoreV2Nodes.md)
 
 ### Authorization
 
@@ -1418,7 +1464,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getParentNodes**
-> \Balloon\Sdk\Model\Nodes getParentNodes($node, $attributes, $self)
+> \Balloon\Sdk\Model\CoreV2Nodes getParentNodes($node, $attributes, $self)
 
 The hirarchy of all parent nodes is ordered in a single level array beginning with the collection on the highest level.
 
@@ -1455,7 +1501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Nodes**](../Model/Nodes.md)
+[**\Balloon\Sdk\Model\CoreV2Nodes**](../Model/CoreV2Nodes.md)
 
 ### Authorization
 
@@ -1469,7 +1515,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRootChildren**
-> \Balloon\Sdk\Model\Nodes getRootChildren($query, $attributes, $offset, $limit, $sort, $recursive)
+> \Balloon\Sdk\Model\CoreV2Nodes getRootChildren($query, $deleted, $attributes, $offset, $limit, $sort, $recursive)
 
 Get all children of the root collection
 
@@ -1484,6 +1530,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $query = "query_example"; // string | Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\"name\": {$regex: 'foo.*'}}).
+$deleted = 8.14; // float | Wheter to include deleted or not
 $attributes = array("attributes_example"); // string[] | Filter attributes
 $offset = 8.14; // float | Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset].
 $limit = 8.14; // float | Objects limit, per default 20 objects will get returned
@@ -1491,7 +1538,7 @@ $sort = "sort_example"; // string | Specify a MongoDB sort operation (https://do
 $recursive = false; // bool | Include children recursively.
 
 try {
-    $result = $apiInstance->getRootChildren($query, $attributes, $offset, $limit, $sort, $recursive);
+    $result = $apiInstance->getRootChildren($query, $deleted, $attributes, $offset, $limit, $sort, $recursive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CoreV2Api->getRootChildren: ', $e->getMessage(), PHP_EOL;
@@ -1504,6 +1551,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**| Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\&quot;name\&quot;: {$regex: &#39;foo.*&#39;}}). | [optional]
+ **deleted** | **float**| Wheter to include deleted or not | [optional]
  **attributes** | [**string[]**](../Model/string.md)| Filter attributes | [optional]
  **offset** | **float**| Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset]. | [optional]
  **limit** | **float**| Objects limit, per default 20 objects will get returned | [optional]
@@ -1512,7 +1560,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Nodes**](../Model/Nodes.md)
+[**\Balloon\Sdk\Model\CoreV2Nodes**](../Model/CoreV2Nodes.md)
 
 ### Authorization
 
@@ -1526,7 +1574,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShare**
-> \Balloon\Sdk\Model\Share getShare($collection)
+> \Balloon\Sdk\Model\CoreV2Share getShare($collection)
 
 Get share acl and share name
 
@@ -1559,7 +1607,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Share**](../Model/Share.md)
+[**\Balloon\Sdk\Model\CoreV2Share**](../Model/CoreV2Share.md)
 
 ### Authorization
 
@@ -1573,7 +1621,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \Balloon\Sdk\Model\User getUser($user, $attributes)
+> \Balloon\Sdk\Model\CoreV2User getUser($user, $attributes)
 
 Get single user
 
@@ -1608,7 +1656,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\User**](../Model/User.md)
+[**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)
 
 ### Authorization
 
@@ -1622,7 +1670,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserAvatar**
-> \Balloon\Sdk\Model\User getUserAvatar($user)
+> \Balloon\Sdk\Model\CoreV2User getUserAvatar($user)
 
 Get user avatar
 
@@ -1655,7 +1703,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\User**](../Model/User.md)
+[**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)
 
 ### Authorization
 
@@ -1669,7 +1717,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserGroups**
-> \Balloon\Sdk\Model\Groups getUserGroups($user, $query, $attributes, $offset, $limit, $sort)
+> \Balloon\Sdk\Model\CoreV2Groups getUserGroups($user, $query, $attributes, $offset, $limit, $sort)
 
 Request all groups of a user
 
@@ -1712,7 +1760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Groups**](../Model/Groups.md)
+[**\Balloon\Sdk\Model\CoreV2Groups**](../Model/CoreV2Groups.md)
 
 ### Authorization
 
@@ -1726,7 +1774,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUsers**
-> \Balloon\Sdk\Model\Users[] getUsers($query, $attributes, $offset, $limit, $sort)
+> \Balloon\Sdk\Model\CoreV2Users[] getUsers($query, $attributes, $offset, $limit, $sort)
 
 Get users
 
@@ -1769,7 +1817,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Users[]**](../Model/Users.md)
+[**\Balloon\Sdk\Model\CoreV2Users[]**](../Model/CoreV2Users.md)
 
 ### Authorization
 
@@ -1783,7 +1831,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getV2**
-> \Balloon\Sdk\Model\ApiRoot getV2()
+> \Balloon\Sdk\Model\CoreV2ApiRoot getV2()
 
 Get server status
 
@@ -1812,7 +1860,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Balloon\Sdk\Model\ApiRoot**](../Model/ApiRoot.md)
+[**\Balloon\Sdk\Model\CoreV2ApiRoot**](../Model/CoreV2ApiRoot.md)
 
 ### Authorization
 
@@ -1826,7 +1874,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **moveNode**
-> \Balloon\Sdk\Model\Node moveNode($node, $destid, $conflict)
+> \Balloon\Sdk\Model\CoreV2Node moveNode($node, $destid, $conflict)
 
 Move node (Change parent collection), single or multiple ones
 
@@ -1863,7 +1911,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Node**](../Model/Node.md)
+[**\Balloon\Sdk\Model\CoreV2Node**](../Model/CoreV2Node.md)
 
 ### Authorization
 
@@ -1877,7 +1925,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **patchGroup**
-> \Balloon\Sdk\Model\Group patchGroup($group, $body)
+> \Balloon\Sdk\Model\CoreV2Group patchGroup($group, $body)
 
 Set attributes for group
 
@@ -1892,7 +1940,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $group = "group_example"; // string | Resource identifier
-$body = new \Balloon\Sdk\Model\Group(); // \Balloon\Sdk\Model\Group | Set attributes for group
+$body = new \Balloon\Sdk\Model\CoreV2Group(); // \Balloon\Sdk\Model\CoreV2Group | Set attributes for group
 
 try {
     $result = $apiInstance->patchGroup($group, $body);
@@ -1908,11 +1956,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group** | **string**| Resource identifier |
- **body** | [**\Balloon\Sdk\Model\Group**](../Model/Group.md)| Set attributes for group |
+ **body** | [**\Balloon\Sdk\Model\CoreV2Group**](../Model/CoreV2Group.md)| Set attributes for group |
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Group**](../Model/Group.md)
+[**\Balloon\Sdk\Model\CoreV2Group**](../Model/CoreV2Group.md)
 
 ### Authorization
 
@@ -1926,7 +1974,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **patchUser**
-> \Balloon\Sdk\Model\User patchUser($user, $body)
+> \Balloon\Sdk\Model\CoreV2User patchUser($user, $body)
 
 Set attributes for user
 
@@ -1941,7 +1989,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $user = "user_example"; // string | Resource identifier
-$body = new \Balloon\Sdk\Model\User(); // \Balloon\Sdk\Model\User | Set attributes for user
+$body = new \Balloon\Sdk\Model\CoreV2User(); // \Balloon\Sdk\Model\CoreV2User | Set attributes for user
 
 try {
     $result = $apiInstance->patchUser($user, $body);
@@ -1957,11 +2005,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user** | **string**| Resource identifier |
- **body** | [**\Balloon\Sdk\Model\User**](../Model/User.md)| Set attributes for user |
+ **body** | [**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)| Set attributes for user |
 
 ### Return type
 
-[**\Balloon\Sdk\Model\User**](../Model/User.md)
+[**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)
 
 ### Authorization
 
@@ -1975,7 +2023,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **rollbackFile**
-> \Balloon\Sdk\Model\File rollbackFile($file)
+> \Balloon\Sdk\Model\CoreV2File rollbackFile($file)
 
 Rollback to a recent version from history. Use the version number from history.
 
@@ -2008,7 +2056,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\File**](../Model/File.md)
+[**\Balloon\Sdk\Model\CoreV2File**](../Model/CoreV2File.md)
 
 ### Authorization
 
@@ -2022,7 +2070,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **shareCollection**
-> \Balloon\Sdk\Model\Collection shareCollection($collection, $body)
+> \Balloon\Sdk\Model\CoreV2Collection shareCollection($collection, $body)
 
 Create a new share from an existing collection
 
@@ -2037,7 +2085,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $collection = "collection_example"; // string | Collection identifier
-$body = new \Balloon\Sdk\Model\Share(); // \Balloon\Sdk\Model\Share | Create a new share from an existing collection
+$body = new \Balloon\Sdk\Model\CoreV2Share(); // \Balloon\Sdk\Model\CoreV2Share | Create a new share from an existing collection
 
 try {
     $result = $apiInstance->shareCollection($collection, $body);
@@ -2053,11 +2101,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection** | **string**| Collection identifier |
- **body** | [**\Balloon\Sdk\Model\Share**](../Model/Share.md)| Create a new share from an existing collection |
+ **body** | [**\Balloon\Sdk\Model\CoreV2Share**](../Model/CoreV2Share.md)| Create a new share from an existing collection |
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Collection**](../Model/Collection.md)
+[**\Balloon\Sdk\Model\CoreV2Collection**](../Model/CoreV2Collection.md)
 
 ### Authorization
 
@@ -2071,7 +2119,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **undeleteGroup**
-> \Balloon\Sdk\Model\Group undeleteGroup($group)
+> \Balloon\Sdk\Model\CoreV2Group undeleteGroup($group)
 
 Restore deleted group
 
@@ -2104,7 +2152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Group**](../Model/Group.md)
+[**\Balloon\Sdk\Model\CoreV2Group**](../Model/CoreV2Group.md)
 
 ### Authorization
 
@@ -2118,7 +2166,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **undeleteNode**
-> \Balloon\Sdk\Model\Node undeleteNode($node, $move, $destid, $conflict)
+> \Balloon\Sdk\Model\CoreV2Node undeleteNode($node, $move, $destid, $conflict)
 
 Undelete (Restore from trash) a single node or multiple ones.
 
@@ -2157,7 +2205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Node**](../Model/Node.md)
+[**\Balloon\Sdk\Model\CoreV2Node**](../Model/CoreV2Node.md)
 
 ### Authorization
 
@@ -2171,7 +2219,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **undeleteUser**
-> \Balloon\Sdk\Model\User undeleteUser($user)
+> \Balloon\Sdk\Model\CoreV2User undeleteUser($user)
 
 Restore deleted user
 
@@ -2204,7 +2252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\User**](../Model/User.md)
+[**\Balloon\Sdk\Model\CoreV2User**](../Model/CoreV2User.md)
 
 ### Authorization
 
@@ -2218,7 +2266,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateNode**
-> \Balloon\Sdk\Model\Node updateNode($node, $body)
+> \Balloon\Sdk\Model\CoreV2Node updateNode($node, $body)
 
 Change attributes
 
@@ -2233,7 +2281,7 @@ $apiInstance = new Balloon\Sdk\Api\CoreV2Api(
     new GuzzleHttp\Client()
 );
 $node = "node_example"; // string | Node identifier
-$body = new \Balloon\Sdk\Model\Node(); // \Balloon\Sdk\Model\Node | Change attributes
+$body = new \Balloon\Sdk\Model\CoreV2Node(); // \Balloon\Sdk\Model\CoreV2Node | Change attributes
 
 try {
     $result = $apiInstance->updateNode($node, $body);
@@ -2249,11 +2297,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **node** | **string**| Node identifier |
- **body** | [**\Balloon\Sdk\Model\Node**](../Model/Node.md)| Change attributes |
+ **body** | [**\Balloon\Sdk\Model\CoreV2Node**](../Model/CoreV2Node.md)| Change attributes |
 
 ### Return type
 
-[**\Balloon\Sdk\Model\Node**](../Model/Node.md)
+[**\Balloon\Sdk\Model\CoreV2Node**](../Model/CoreV2Node.md)
 
 ### Authorization
 
@@ -2267,7 +2315,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **uploadChunk**
-> \Balloon\Sdk\Model\File uploadChunk($body)
+> \Balloon\Sdk\Model\CoreV2File uploadChunk($body)
 
 Upload a file chunk. You have to manually splitt the binary data into multiple chunks and upload them successively! using this method. Once uploading the last chunk, the server will automatically create or update the file node. You may set the parent collection, name and or custom attributes only with the last request to save traffic.
 
@@ -2300,7 +2348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\File**](../Model/File.md)
+[**\Balloon\Sdk\Model\CoreV2File**](../Model/CoreV2File.md)
 
 ### Authorization
 
@@ -2314,7 +2362,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **uploadFile**
-> \Balloon\Sdk\Model\File uploadFile($body)
+> \Balloon\Sdk\Model\CoreV2File uploadFile($body)
 
 Upload an entire file in one-shot. Use this endpoint only for small files, for bigger files use the chunking endpoint.
 
@@ -2347,7 +2395,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Balloon\Sdk\Model\File**](../Model/File.md)
+[**\Balloon\Sdk\Model\CoreV2File**](../Model/CoreV2File.md)
 
 ### Authorization
 

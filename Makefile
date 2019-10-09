@@ -103,14 +103,15 @@ $(PHPSTAN_TARGET): $(PHPSTAN_SCRIPT) $(PHP_FILES) $(PHP_TEST_FILES)
 swagger: $(SWAGGER_TARGET)
 
 $(SWAGGER_TARGET): $(SWAGGER_SPECS)
-	java -jar $(SWAGGER_JAR) generate -i $(SWAGGER_SPECS) -l php --reserved-words-mappings=List=ResourceList --http-user-agent "balloon php sdk" -t src -o . -D variableNamingConvention=snake_case -D invokerPackage=Balloon\\Sdk -t templates
+	java -jar $(SWAGGER_JAR) generate -i $(SWAGGER_SPECS) -l php --reserved-words-mappings=List=ResourceList --http-user-agent "balloon php sdk" -t src -o . -D variableNamingConvention=snake_case -D invokerPackage=Balloon\\Sdk
+	#@exit
 	@rm -rfv $(BASE_DIR)/tests/*
 	@rm -rfv $(BASE_DIR)/src/*
 	@rm -rfv $(BASE_DIR)/docs/*
 	@mv $(SWAGGER_DIR)/test/* tests
 	@mv $(SWAGGER_DIR)/lib/* src
 	@mv $(SWAGGER_DIR)/docs/* docs
-	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/Node.php
-	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/Collection.php
-	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/File.php
-	@sed s/"const PRIVILEGE_W = 'w+';"/"const PRIVILEGE_INBOX = 'w+';"/g -i src/Model/AclRule.php
+	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/CoreV2Node.php
+	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/CoreV2Collection.php
+	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/CoreV2File.php
+	@sed s/"const PRIVILEGE_W = 'w+';"/"const PRIVILEGE_INBOX = 'w+';"/g -i src/Model/CoreV2AclRule.php
