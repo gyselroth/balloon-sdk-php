@@ -1,4 +1,4 @@
-lang: php
+language: java
 php:
 - '7.0'
 - '7.1'
