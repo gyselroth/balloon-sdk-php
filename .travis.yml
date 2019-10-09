@@ -1,4 +1,9 @@
-lang: java
+lang: php
+php:
+- '7.0'
+- '7.1'
+- '7.2'
+- '7.3'
 before_install: 
 - git clone https://github.com/swagger-api/swagger-codegen.git
 - cd swagger-codegen
