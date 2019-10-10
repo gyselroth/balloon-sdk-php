@@ -1,6 +1,6 @@
 # Balloon\Sdk\ConvertV2Api
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,26 +11,30 @@ Method | HTTP request | Description
 [**getSupportedFormats**](ConvertV2Api.md#getSupportedFormats) | **GET** /api/v2/files/{file}/convert/supported-formats | Get supported file formats to convert to (formats do vary between files)
 
 
-# **addSlave**
-> \Balloon\Sdk\Model\ConvertV2Slave addSlave($file, $body)
+
+## addSlave
+
+> \Balloon\Sdk\Model\ConvertV2Slave addSlave($file, $convert_v2_slave)
 
 Add new convert slave
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\ConvertV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$file = "file_example"; // string | File identifier
-$body = new \Balloon\Sdk\Model\ConvertV2Slave(); // \Balloon\Sdk\Model\ConvertV2Slave | Add new conversion slave
+$file = 'file_example'; // string | File identifier
+$convert_v2_slave = new \Balloon\Sdk\Model\ConvertV2Slave(); // \Balloon\Sdk\Model\ConvertV2Slave | Add new conversion slave
 
 try {
-    $result = $apiInstance->addSlave($file, $body);
+    $result = $apiInstance->addSlave($file, $convert_v2_slave);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConvertV2Api->addSlave: ', $e->getMessage(), PHP_EOL;
@@ -40,10 +44,11 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file** | **string**| File identifier |
- **body** | [**\Balloon\Sdk\Model\ConvertV2Slave**](../Model/ConvertV2Slave.md)| Add new conversion slave |
+ **convert_v2_slave** | [**\Balloon\Sdk\Model\ConvertV2Slave**](../Model/ConvertV2Slave.md)| Add new conversion slave |
 
 ### Return type
 
@@ -55,28 +60,34 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **deleteSlave**
+
+## deleteSlave
+
 > deleteSlave($file, $slave)
 
 Delete slave
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\ConvertV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$file = "file_example"; // string | File identifier
-$slave = "slave_example"; // string | Slave identifier
+$file = 'file_example'; // string | File identifier
+$slave = 'slave_example'; // string | Slave identifier
 
 try {
     $apiInstance->deleteSlave($file, $slave);
@@ -87,6 +98,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -103,28 +115,34 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getSlave**
+
+## getSlave
+
 > \Balloon\Sdk\Model\ConvertV2Slave getSlave($file, $slave)
 
 Get single slave
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\ConvertV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$file = "file_example"; // string | File identifier
-$slave = "slave_example"; // string | Slave identifier
+$file = 'file_example'; // string | File identifier
+$slave = 'slave_example'; // string | Slave identifier
 
 try {
     $result = $apiInstance->getSlave($file, $slave);
@@ -136,6 +154,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -152,27 +171,33 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getSlaves**
+
+## getSlaves
+
 > \Balloon\Sdk\Model\ConvertV2Slaves getSlaves($file)
 
 Get existing convert slaves
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\ConvertV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$file = "file_example"; // string | File identifier
+$file = 'file_example'; // string | File identifier
 
 try {
     $result = $apiInstance->getSlaves($file);
@@ -184,6 +209,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -199,27 +225,33 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getSupportedFormats**
+
+## getSupportedFormats
+
 > string[] getSupportedFormats($file)
 
 Get supported file formats to convert to (formats do vary between files)
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\ConvertV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$file = "file_example"; // string | File identifier
+$file = 'file_example'; // string | File identifier
 
 try {
     $result = $apiInstance->getSupportedFormats($file);
@@ -231,6 +263,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -246,8 +279,10 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

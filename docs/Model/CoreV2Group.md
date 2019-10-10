@@ -1,6 +1,7 @@
-# CoreV2Group
+# # CoreV2Group
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_links** | [**\Balloon\Sdk\Model\CoreV2Links**](CoreV2Links.md) |  | [optional] 
@@ -11,6 +12,6 @@ Name | Type | Description | Notes
 **namespace** | **string** | User namespace. | [optional] 
 **member** | **string[]** | Array of user id&#39;s. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

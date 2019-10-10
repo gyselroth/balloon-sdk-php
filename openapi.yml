@@ -866,6 +866,141 @@ paths:
           description: Access denied
         "404":
           description: Resource does not exists
+  "/api/v2/files/{file}/convert/slaves":
+    get:
+      tags:
+        - convert.v2
+      summary: Get existing convert slaves
+      operationId: getSlaves
+      parameters:
+        - name: file
+          in: path
+          required: true
+          description: File identifier
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Slaves
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/convert.v2.Slaves"
+        "403":
+          description: Access denied
+        "404":
+          description: Resource does not exists
+    post:
+      tags:
+        - convert.v2
+      summary: Add new convert slave
+      operationId: addSlave
+      parameters:
+        - name: file
+          in: path
+          required: true
+          description: File identifier
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/convert.v2.Slave"
+        description: "Add new conversion slave "
+        required: true
+      responses:
+        "202":
+          description: Slave
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/convert.v2.Slave"
+        "403":
+          description: Access denied
+        "404":
+          description: Resource does not exists
+  "/api/v2/files/{file}/convert/slaves/{slave}":
+    get:
+      tags:
+        - convert.v2
+      summary: Get single slave
+      operationId: getSlave
+      parameters:
+        - name: file
+          in: path
+          required: true
+          description: File identifier
+          schema:
+            type: string
+        - name: slave
+          in: path
+          required: true
+          description: Slave identifier
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Slave
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/convert.v2.Slave"
+        "403":
+          description: Access denied
+        "404":
+          description: Resource does not exists
+    delete:
+      tags:
+        - convert.v2
+      summary: Delete slave
+      operationId: deleteSlave
+      parameters:
+        - name: file
+          in: path
+          required: true
+          description: File identifier
+          schema:
+            type: string
+        - name: slave
+          in: path
+          required: true
+          description: Slave identifier
+          schema:
+            type: string
+      responses:
+        "204":
+          description: If successful the server will respond with 204 No Content
+        "403":
+          description: Access denied
+        "404":
+          description: Resource does not exists
+  "/api/v2/files/{file}/convert/supported-formats":
+    get:
+      tags:
+        - convert.v2
+      summary: Get supported file formats to convert to (formats do vary between files)
+      operationId: getSupportedFormats
+      parameters:
+        - name: file
+          in: path
+          required: true
+          description: File identifier
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Formats
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "403":
+          description: Access denied
+        "404":
+          description: Resource does not exists
   "/api/v2/desktop-clients/{format}/content":
     get:
       tags:
@@ -957,7 +1092,7 @@ paths:
       operationId: updateWopiDocuemntContent
       parameters:
         - name: document
-          in: query
+          in: path
           required: true
           description: "The document id "
           schema:
@@ -2630,6 +2765,9 @@ components:
           enum:
             - rw
             - w
+            - m
+            - w+
+            - d
         role:
           description: Points to the share owner. If the node is not part of any share this
             is null.
@@ -2854,3 +2992,44 @@ components:
                 name:
                   description: The name of the node.
                   type: string
+    convert.v2.Slaves:
+      description: A list of convert slaves.
+      allOf:
+        - $ref: "#/components/schemas/core.v2.ResourceList"
+        - type: object
+          properties:
+            data:
+              type: array
+              items:
+                $ref: "#/components/schemas/convert.v2.Slave"
+    convert.v2.Slave:
+      description: A convert slave
+      allOf:
+        - $ref: "#/components/schemas/core.v2.Resource"
+        - type: object
+          properties:
+            format:
+              description: Slave format.
+              type: string
+            master:
+              description: Master node from which the slave is from.
+              type: object
+              properties:
+                id:
+                  description: The id of the node.
+                  type: string
+                name:
+                  description: The name of the node.
+                  type: string
+            slave:
+              description: The generated slave node. As long as the slave has not yet been
+                created this is null.
+              type: object
+              properties:
+                id:
+                  description: The id of the node.
+                  type: string
+                name:
+                  description: The name of the node.
+                  type: string
+

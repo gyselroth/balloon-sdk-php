@@ -11,4 +11,4 @@ parameters:
 
     reportUnmatchedIgnoredErrors: false
 includes:
-    - vendor/phpstan/phpstan/conf/config.level1.neon
+    - vendor/phpstan/phpstan/conf/config.level0.neon

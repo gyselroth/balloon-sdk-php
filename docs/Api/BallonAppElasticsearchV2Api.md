@@ -1,29 +1,33 @@
 # Balloon\Sdk\BallonAppElasticsearchV2Api
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**queryElasticsearch**](BallonAppElasticsearchV2Api.md#queryElasticsearch) | **GET** /api/v2/nodes/search | Extended search query using elasticsearch
 
 
-# **queryElasticsearch**
+
+## queryElasticsearch
+
 > \Balloon\Sdk\Model\CoreV2Nodes queryElasticsearch($query, $deleted)
 
 Extended search query using elasticsearch
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\BallonAppElasticsearchV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$query = "query_example"; // string | Elasticsearch query as JSON
-$deleted = 8.14; // float | Wherever include deleted nodes or not, possible values:  0 Exclude deleted 1 Only deleted 2 Include deleted.
+$query = 'query_example'; // string | Elasticsearch query as JSON
+$deleted = 3.4; // float | Wherever include deleted nodes or not, possible values:  0 Exclude deleted 1 Only deleted 2 Include deleted.
 
 try {
     $result = $apiInstance->queryElasticsearch($query, $deleted);
@@ -35,6 +39,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -51,8 +56,10 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

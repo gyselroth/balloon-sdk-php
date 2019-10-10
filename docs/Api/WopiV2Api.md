@@ -1,6 +1,6 @@
 # Balloon\Sdk\WopiV2Api
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,27 +10,31 @@ Method | HTTP request | Description
 [**updateWopiDocuemntContent**](WopiV2Api.md#updateWopiDocuemntContent) | **POST** /api/v2/office/wopi/document/{document}/contents | Save document contents
 
 
-# **createDocument**
-> \Balloon\Sdk\Model\CoreV2File createDocument($body)
+
+## createDocument
+
+> \Balloon\Sdk\Model\CoreV2File createDocument($core_v2_file)
 
 
 
 Create new document from an existing office document template
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\WopiV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Balloon\Sdk\Model\CoreV2File(); // \Balloon\Sdk\Model\CoreV2File | 
+$core_v2_file = new \Balloon\Sdk\Model\CoreV2File(); // \Balloon\Sdk\Model\CoreV2File | 
 
 try {
-    $result = $apiInstance->createDocument($body);
+    $result = $apiInstance->createDocument($core_v2_file);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WopiV2Api->createDocument: ', $e->getMessage(), PHP_EOL;
@@ -40,9 +44,10 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Balloon\Sdk\Model\CoreV2File**](../Model/CoreV2File.md)|  |
+ **core_v2_file** | [**\Balloon\Sdk\Model\CoreV2File**](../Model/CoreV2File.md)|  |
 
 ### Return type
 
@@ -54,28 +59,34 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getWopiDocument**
+
+## getWopiDocument
+
 > \Balloon\Sdk\Model\OfficeV2WopiDocument getWopiDocument($document, $access_token)
 
 Get document session information including document owner, session user and document size
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\WopiV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$document = "document_example"; // string | The document id
-$access_token = "access_token_example"; // string | An access token to access the document
+$document = 'document_example'; // string | The document id
+$access_token = 'access_token_example'; // string | An access token to access the document
 
 try {
     $result = $apiInstance->getWopiDocument($document, $access_token);
@@ -87,6 +98,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -103,28 +115,34 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getWopiDocumentContent**
+
+## getWopiDocumentContent
+
 > getWopiDocumentContent($document, $access_token)
 
 Get document contents
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\WopiV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$document = "document_example"; // string | The document id
-$access_token = "access_token_example"; // string | An access token to access the document
+$document = 'document_example'; // string | The document id
+$access_token = 'access_token_example'; // string | An access token to access the document
 
 try {
     $apiInstance->getWopiDocumentContent($document, $access_token);
@@ -135,6 +153,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -151,29 +170,35 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **updateWopiDocuemntContent**
+
+## updateWopiDocuemntContent
+
 > updateWopiDocuemntContent($document, $access_token, $body)
 
 Save document contents
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\WopiV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$document = "document_example"; // string | The document id
-$access_token = "access_token_example"; // string | An access token to access the document
-$body = "body_example"; // string | Document content
+$document = 'document_example'; // string | The document id
+$access_token = 'access_token_example'; // string | An access token to access the document
+$body = 'body_example'; // string | Document content
 
 try {
     $apiInstance->updateWopiDocuemntContent($document, $access_token, $body);
@@ -184,6 +209,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -201,8 +227,10 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

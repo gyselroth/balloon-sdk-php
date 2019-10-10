@@ -1,4 +1,5 @@
-SwaggerClient-php
+openapi-generator
+generated
 swagger-codegen
 vendor 
 composer.lock

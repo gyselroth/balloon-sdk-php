@@ -1,16 +1,13 @@
-language: java
+language: php
 php:
 - '7.0'
 - '7.1'
 - '7.2'
 - '7.3'
 before_install: 
-- git clone https://github.com/swagger-api/swagger-codegen.git
-- cd swagger-codegen
-- git checkout v2.4.8
-- jdk_switcher use openjdk8
-- mvn clean install
-- cd ..
+- mkdir openapi-generator
+- curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > openapi-generator/openapi-generator-cli
+- chmod +x openapi-generator/openapi-generator-cli 
 script:
 - wget https://raw.githubusercontent.com/gyselroth/balloon/master/src/app/Balloon.App.Api/swagger.yml -O swagger.yml
 - wget https://raw.githubusercontent.com/gyselroth/balloon/master/src/app/Balloon.App.Api/openapi.yml -O openapi.yml

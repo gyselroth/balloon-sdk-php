@@ -1,6 +1,6 @@
 # Balloon\Sdk\NotificationV2Api
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,22 +13,26 @@ Method | HTTP request | Description
 [**subscribeNode**](NotificationV2Api.md#subscribeNode) | **POST** /api/v2/nodes/{node}/subscription | Receive node updates
 
 
-# **deleteNotification**
+
+## deleteNotification
+
 > deleteNotification($notification)
 
 Delete a notification
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\NotificationV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$notification = "notification_example"; // string | Resource identifier
+$notification = 'notification_example'; // string | Resource identifier
 
 try {
     $apiInstance->deleteNotification($notification);
@@ -39,6 +43,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -54,31 +59,37 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getMyNotifications**
+
+## getMyNotifications
+
 > \Balloon\Sdk\Model\NotificationV2Notifications getMyNotifications($query, $attributes, $offset, $limit, $sort)
 
 Get my nofitifications
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\NotificationV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$query = "query_example"; // string | Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\"name\": {$regex: 'foo.*'}}).
-$attributes = array("attributes_example"); // string[] | Filter attributes
-$offset = 8.14; // float | Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset].
-$limit = 8.14; // float | Objects limit, per default 20 objects will get returned
-$sort = "sort_example"; // string | Specify a MongoDB sort operation (https://docs.mongodb.com/manual/reference/method/cursor.sort/) using JSON (For example: {\"name\": -1}).
+$query = 'query_example'; // string | Specify a MongoDB based resource query (https://docs.mongodb.com/manual/tutorial/query-documents) using JSON (For example: {\"name\": {$regex: 'foo.*'}}).
+$attributes = array('attributes_example'); // string[] | Filter attributes
+$offset = 3.4; // float | Objects offset, per default it starts from 0. You may also request a negative offset which will return results from the end [total - offset].
+$limit = 3.4; // float | Objects limit, per default 20 objects will get returned
+$sort = 'sort_example'; // string | Specify a MongoDB sort operation (https://docs.mongodb.com/manual/reference/method/cursor.sort/) using JSON (For example: {\"name\": -1}).
 
 try {
     $result = $apiInstance->getMyNotifications($query, $attributes, $offset, $limit, $sort);
@@ -90,6 +101,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -109,27 +121,33 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **getNotification**
+
+## getNotification
+
 > \Balloon\Sdk\Model\NotificationV2Notification getNotification($notification)
 
 Get a single notification
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\NotificationV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$notification = "notification_example"; // string | Resource identifier
+$notification = 'notification_example'; // string | Resource identifier
 
 try {
     $result = $apiInstance->getNotification($notification);
@@ -141,6 +159,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -156,30 +175,36 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **postNotification**
-> \Balloon\Sdk\Model\NotificationV2Notification postNotification($body)
+
+## postNotification
+
+> \Balloon\Sdk\Model\NotificationV2Notification postNotification($notification_v2_notification)
 
 Send notification
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\NotificationV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Balloon\Sdk\Model\NotificationV2Notification(); // \Balloon\Sdk\Model\NotificationV2Notification | 
+$notification_v2_notification = new \Balloon\Sdk\Model\NotificationV2Notification(); // \Balloon\Sdk\Model\NotificationV2Notification | 
 
 try {
-    $result = $apiInstance->postNotification($body);
+    $result = $apiInstance->postNotification($notification_v2_notification);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NotificationV2Api->postNotification: ', $e->getMessage(), PHP_EOL;
@@ -189,9 +214,10 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Balloon\Sdk\Model\NotificationV2Notification**](../Model/NotificationV2Notification.md)|  | [optional]
+ **notification_v2_notification** | [**\Balloon\Sdk\Model\NotificationV2Notification**](../Model/NotificationV2Notification.md)|  | [optional]
 
 ### Return type
 
@@ -203,30 +229,36 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **sendBroadcast**
-> \Balloon\Sdk\Model\NotificationV2Notification sendBroadcast($body)
+
+## sendBroadcast
+
+> \Balloon\Sdk\Model\NotificationV2Notification sendBroadcast($notification_v2_notification)
 
 Send notification to all users
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\NotificationV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Balloon\Sdk\Model\NotificationV2Notification(); // \Balloon\Sdk\Model\NotificationV2Notification | Notification
+$notification_v2_notification = new \Balloon\Sdk\Model\NotificationV2Notification(); // \Balloon\Sdk\Model\NotificationV2Notification | Notification
 
 try {
-    $result = $apiInstance->sendBroadcast($body);
+    $result = $apiInstance->sendBroadcast($notification_v2_notification);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NotificationV2Api->sendBroadcast: ', $e->getMessage(), PHP_EOL;
@@ -236,9 +268,10 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Balloon\Sdk\Model\NotificationV2Notification**](../Model/NotificationV2Notification.md)| Notification | [optional]
+ **notification_v2_notification** | [**\Balloon\Sdk\Model\NotificationV2Notification**](../Model/NotificationV2Notification.md)| Notification | [optional]
 
 ### Return type
 
@@ -250,30 +283,36 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **sendMail**
-> sendMail($body)
+
+## sendMail
+
+> sendMail($notification_v2_mail)
 
 Send mail
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\NotificationV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Balloon\Sdk\Model\NotificationV2Mail(); // \Balloon\Sdk\Model\NotificationV2Mail | Mail
+$notification_v2_mail = new \Balloon\Sdk\Model\NotificationV2Mail(); // \Balloon\Sdk\Model\NotificationV2Mail | Mail
 
 try {
-    $apiInstance->sendMail($body);
+    $apiInstance->sendMail($notification_v2_mail);
 } catch (Exception $e) {
     echo 'Exception when calling NotificationV2Api->sendMail: ', $e->getMessage(), PHP_EOL;
 }
@@ -282,9 +321,10 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Balloon\Sdk\Model\NotificationV2Mail**](../Model/NotificationV2Mail.md)| Mail | [optional]
+ **notification_v2_mail** | [**\Balloon\Sdk\Model\NotificationV2Mail**](../Model/NotificationV2Mail.md)| Mail | [optional]
 
 ### Return type
 
@@ -296,30 +336,36 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: Not defined
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **subscribeNode**
+
+## subscribeNode
+
 > \Balloon\Sdk\Model\CoreV2Node subscribeNode($node, $subscribe, $exclude_me, $recursive)
 
 Receive node updates
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $apiInstance = new Balloon\Sdk\Api\NotificationV2Api(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$node = "node_example"; // string | Node identifier
-$subscribe = true; // bool | If true the subscription is active
-$exclude_me = true; // bool | Exclude subscription owner (me) from change notifications
-$recursive = true; // bool | Apply subscription to children (inclusive newly added children)
+$node = 'node_example'; // string | Node identifier
+$subscribe = True; // bool | If true the subscription is active
+$exclude_me = True; // bool | Exclude subscription owner (me) from change notifications
+$recursive = True; // bool | Apply subscription to children (inclusive newly added children)
 
 try {
     $result = $apiInstance->subscribeNode($node, $subscribe, $exclude_me, $recursive);
@@ -331,6 +377,7 @@ try {
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -349,8 +396,10 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

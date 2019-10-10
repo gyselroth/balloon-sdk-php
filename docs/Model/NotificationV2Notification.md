@@ -1,6 +1,7 @@
-# NotificationV2Notification
+# # NotificationV2Notification
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_links** | [**\Balloon\Sdk\Model\CoreV2Links**](CoreV2Links.md) |  | [optional] 
@@ -9,9 +10,9 @@ Name | Type | Description | Notes
 **locale** | **string** | Notification locale. A locale contains a static message which is of a given locale. | [optional] [default to 'en_US']
 **subject** | **string** | Subject. | [optional] 
 **message** | **string** | Message. | [optional] 
-**sender** | [**\Balloon\Sdk\Model\NotificationV2NotificationSender**](NotificationV2NotificationSender.md) |  | [optional] 
-**node** | [**\Balloon\Sdk\Model\NotificationV2NotificationNode**](NotificationV2NotificationNode.md) |  | [optional] 
+**sender** | [**\Balloon\Sdk\Model\NotificationV2NotificationAllOfSender**](NotificationV2NotificationAllOfSender.md) |  | [optional] 
+**node** | [**\Balloon\Sdk\Model\NotificationV2NotificationAllOfNode**](NotificationV2NotificationAllOfNode.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

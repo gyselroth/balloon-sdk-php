@@ -5,7 +5,7 @@ BASE_DIR = .
 SRC_DIR = $(BASE_DIR)/src
 VENDOR_DIR = $(BASE_DIR)/vendor
 TESTS_DIR = $(BASE_DIR)/tests
-SWAGGER_DIR = $(BASE_DIR)/SwaggerClient-php
+SWAGGER_DIR = $(BASE_DIR)/generated
 
 # PHP BINARY
 PHP_BIN = php
@@ -23,8 +23,8 @@ PHPUNIT_LOCK = $(BASE_DIR)/.phpunit.lock
 PHPSTAN_SCRIPT = $(VENDOR_DIR)/bin/phpstan
 PHPSTAN_LOCK = $(BASE_DIR)/.phpstan.lock
 # SWAGGER STUFF
-SWAGGER_SPECS = $(BASE_DIR)/swagger.yml
-SWAGGER_JAR = $(BASE_DIR)/swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar
+SWAGGER_SPECS = $(BASE_DIR)/openapi.yml
+SWAGGER_JAR = $(BASE_DIR)/openapi-generator/openapi-generator-cli
 
 # TARGET ALIASES
 COMPOSER_TARGET = $(COMPOSER_LOCK)
@@ -32,7 +32,7 @@ PHPCS_CHECK_TARGET = $(PHPCS_FIXER_LOCK)
 PHPUNIT_TARGET = $(PHPUNIT_LOCK)
 PHPSTAN_TARGET = $(PHPSTAN_LOCK)
 SWAGGER_TARGET = $(SWAGGER_DIR)
-BUILD_TARGET = $(SWAGGER_TARGET) $(COMPOSER_TARGET) $(PHPCS_CHECK_TARGET) $(PHPUNIT_TARGET) $(PHPSTAN_TARGET)
+BUILD_TARGET = $(SWAGGER_TARGET) $(COMPOSER_TARGET) $(PHPCS_CHECK_TARGET) $(PHPUNIT_TARGET)
 
 # MACROS
 macro_find_phpfiles = $(shell find $(1) -type f -name "*.php")
@@ -103,8 +103,7 @@ $(PHPSTAN_TARGET): $(PHPSTAN_SCRIPT) $(PHP_FILES) $(PHP_TEST_FILES)
 swagger: $(SWAGGER_TARGET)
 
 $(SWAGGER_TARGET): $(SWAGGER_SPECS)
-	java -jar $(SWAGGER_JAR) generate -i $(SWAGGER_SPECS) -l php --reserved-words-mappings=List=ResourceList --http-user-agent "balloon php sdk" -t src -o . -D variableNamingConvention=snake_case -D invokerPackage=Balloon\\Sdk
-	#@exit
+	$(SWAGGER_JAR) generate -i $(SWAGGER_SPECS) -g php --reserved-words-mappings=List=ResourceList --http-user-agent "balloon php sdk" -t src -o ${SWAGGER_DIR} -D variableNamingConvention=snake_case --invoker-package Balloon\\Sdk
 	@rm -rfv $(BASE_DIR)/tests/*
 	@rm -rfv $(BASE_DIR)/src/*
 	@rm -rfv $(BASE_DIR)/docs/*
@@ -114,4 +113,5 @@ $(SWAGGER_TARGET): $(SWAGGER_SPECS)
 	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/CoreV2Node.php
 	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/CoreV2Collection.php
 	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/CoreV2File.php
+	@sed s/"const ACCESS_W = 'w+';"/"const ACCESS_INBOX = 'w+';"/g -i src/Model/CoreV2NodeAllOf.php
 	@sed s/"const PRIVILEGE_W = 'w+';"/"const PRIVILEGE_INBOX = 'w+';"/g -i src/Model/CoreV2AclRule.php
