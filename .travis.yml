@@ -4,6 +4,8 @@ php:
 - '7.1'
 - '7.2'
 - '7.3'
+notifications:
+  email: false
 before_install: 
 - mkdir openapi-generator
 - curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > openapi-generator/openapi-generator-cli
@@ -15,6 +17,6 @@ script:
 after_success:
 - git config --global user.email "sahli@gyselroth.com"
 - git config --global user.name "Travis CI"
-- git add src/*; git add src/*.yml
+- git add src/*; git add \*.yml;
 - git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-- git push --quiet --set-upstream master master
+- git push --quiet master origin

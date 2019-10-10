@@ -19,18 +19,20 @@ composer require gyselroth/balloon-sdk
 ```
 
 ## Basic usage
-
 ```php
-use Balloon\Sdk\Configuration;
 use Balloon\Sdk\Api\CoreV2Api;
-use GuzzleHttp\Client;
+use Balloon\Sdk\Configuration;
 
-$client = new Client();
+$client = new GuzzleHttp\Client();
+
 $config = new Configuration();
-$config->setAuthMethod('token');
-$config->setHost('https://localhost:8081');
-$config->setAccessToken('0dadcc7510979af9e2b8c58bd76cc611ac7453ec');
-    
+$config->setHost('http://localhost:8084');
+$config->setUsername('admin');
+$config->setPassword('admin');
+
+//Access token auth (Bearer)
+//$config->setAccessToken('0dadcc7510979af9e2b8c58bd76cc611ac7453ec');
+
 $core = new CoreV2Api($client, $config);
 $core->getNodes();
 ```
